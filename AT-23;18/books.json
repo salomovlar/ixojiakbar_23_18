@@ -1,0 +1,62 @@
+[
+    {
+        "id": "binafsha",
+        "title": "Binafsha",
+        "author": "Shahlo Qosimova",
+        "genre": "roman",
+        "price": 45000,
+        "stock": 12,
+        "image": "https://via.placeholder.com/400x500/667eea/fff?text=Binafsha",
+        "description": "Binafsha - zamonaviy o'zbek adabiyotining yorqin namunasi. Kitobda ayol ruhiyati va jamiyatdagi o'rni haqida hikoya qilinadi."
+    },
+    {
+        "id": "shaytanat",
+        "title": "Shaytanat",
+        "author": "Abdulla Qahhor",
+        "genre": "hikoya",
+        "price": 55000,
+        "stock": 8,
+        "image": "https://via.placeholder.com/400x500/764ba2/fff?text=Shaytanat",
+        "description": "Abdulla Qahhorning mashhur hikoyalar to'plami. Asarda insoniy fazilatlar va nuqsonlar ustida o'ylashga undaydi."
+    },
+    {
+        "id": "men",
+        "title": "Men",
+        "author": "O'tkir Hoshimov",
+        "genre": "roman",
+        "price": 38000,
+        "stock": 15,
+        "image": "https://via.placeholder.com/400x500/667eea/fff?text=Men",
+        "description": "O'tkir Hoshimovning falsafiy roman-bu asar inson va jamiyat o'rtasidagi munosabatlarni ochib beradi."
+    },
+    {
+        "id": "sarob",
+        "title": "Sarob",
+        "author": "O'tkir Hoshimov",
+        "genre": "roman",
+        "price": 42000,
+        "stock": 10,
+        "image": "https://via.placeholder.com/400x500/764ba2/fff?text=Sarob",
+        "description": "Hayot va o'lim mavzularida yozilgan chuqur falsafiy asar. Inson izlanishlari haqida."
+    },
+    {
+        "id": "tong-yulduzi",
+        "title": "Tong Yulduzi",
+        "author": "Erkin Vohidov",
+        "genre": "she'r",
+        "price": 35000,
+        "stock": 20,
+        "image": "https://via.placeholder.com/400x500/667eea/fff?text=Tong+Yulduzi",
+        "description": "Erkin Vohidov she'riyatining eng yaxshi namunalaridan biri. Vatan, muhabbat va insonparvarlik mavzulari."
+    },
+    {
+        "id": "mantiq",
+        "title": "Mantiq",
+        "author": "A. Ibn Sino",
+        "genre": "ilm",
+        "price": 60000,
+        "stock": 5,
+        "image": "https://via.placeholder.com/400x500/764ba2/fff?text=Mantiq",
+        "description": "Ibn Sinoning falsafiy asari. Mantiq fanining asoslari va inson tafakkuri haqida."
+    }
+]

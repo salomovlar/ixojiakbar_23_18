@@ -1,0 +1,62 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Savat{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Savat</h1>
+
+{% if items %}
+<div class="row">
+    <div class="col-md-8">
+        {% for item in items %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    {% if item.book.image %}
+                    <img src="{{ item.book.image.url }}" class="img-fluid rounded-start" alt="{{ item.book.title }}" style="height: 150px; object-fit: cover;">
+                    {% else %}
+                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 150px;">
+                        <i class="bi bi-book" style="font-size: 2rem;"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.book.title }}</h5>
+                        <p class="card-text text-muted">{{ item.book.author }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-2">
+                                <form method="post" action="{% url 'update_cart' item.id %}" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.book.stock }}" style="width: 70px;" onchange="this.form.submit()">
+                                </form>
+                                <span>x {{ item.book.price }} so'm = {{ item.total_price }} so'm</span>
+                            </div>
+                            <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Jami: {{ total }} so'm</h5>
+                <a href="{% url 'checkout' %}" class="btn btn-primary w-100">Buyurtma berish</a>
+                <a href="{% url 'index' %}" class="btn btn-outline-secondary w-100 mt-2">Xaridni davom ettirish</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="text-center py-5">
+    <i class="bi bi-cart-x" style="font-size: 4rem;"></i>
+    <p class="mt-3">Savat bo'sh</p>
+    <a href="{% url 'index' %}" class="btn btn-primary">Kitoblarni ko'rish</a>
+</div>
+{% endif %}
+{% endblock %}

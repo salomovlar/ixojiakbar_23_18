@@ -1,0 +1,61 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Kitoblarni boshqarish{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Kitoblarni boshqarish</h1>
+
+<div class="mb-3">
+    <a href="{% url 'add_book' %}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Yangi kitob qo'shish
+    </a>
+</div>
+
+{% if books %}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Rasm</th>
+                <th>Nomi</th>
+                <th>Muallif</th>
+                <th>Narxi</th>
+                <th>Qoldiq</th>
+                <th>Layklar</th>
+                <th>Amallar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>
+                    {% if book.image %}
+                    <img src="{{ book.image.url }}" alt="{{ book.title }}" style="width: 50px; height: 50px; object-fit: cover;">
+                    {% else %}
+                    <i class="bi bi-book" style="font-size: 1.5rem;"></i>
+                    {% endif %}
+                </td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.price }} so'm</td>
+                <td>{{ book.stock }}</td>
+                <td>{{ book.likes_count }}</td>
+                <td>
+                    <a href="{% url 'edit_book' book.id %}" class="btn btn-sm btn-warning">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a href="{% url 'delete_book' book.id %}" class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">
+    Hozircha kitoblar mavjud emas. <a href="{% url 'add_book' %}">Birinchi kitobni qo'shish</a>
+</div>
+{% endif %}
+{% endblock %}

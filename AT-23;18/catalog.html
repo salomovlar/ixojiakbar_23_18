@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog - Kichkina Shaxzoda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .filters {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            min-width: 180px;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .book-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: #f0f0f0;
+        }
+
+        .book-card h3 {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .book-card .author {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .book-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .book-info span {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .book-info .price {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .book-info .stock {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .view-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kichkina Shaxzoda</h1>
+            <p>Kitoblar katalogi</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="catalog.html" class="active">Katalog</a></li>
+                <li><a href="partners.html">Hamkorlarimiz</a></li>
+                <li><a href="about.html">Biz haqimizda</a></li>
+            </ul>
+        </nav>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Janr</label>
+                <select id="genreFilter">
+                    <option value="all">Barchasi</option>
+                    <option value="roman">Roman</option>
+                    <option value="hikoya">Hikoya</option>
+                    <option value="she'r">She'r</option>
+                    <option value="ilm">Ilmiy</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Narx (g'acha)</label>
+                <input type="number" id="maxPrice" placeholder="Maksimal narx" min="0">
+            </div>
+            <div class="filter-group">
+                <label>Qidiruv</label>
+                <input type="text" id="searchInput" placeholder="Kitob nomi...">
+            </div>
+        </div>
+
+        <div class="books-grid" id="booksGrid"></div>
+    </div>
+
+    <script>
+        const booksData = [
+            {
+                "id": "binafsha",
+                "title": "Binafsha",
+                "author": "Shahlo Qosimova",
+                "genre": "roman",
+                "price": 45000,
+                "stock": 12,
+                "image": "https://via.placeholder.com/280x300/667eea/fff?text=Binafsha"
+            },
+            {
+                "id": "shaytanat",
+                "title": "Shaytanat",
+                "author": "Abdulla Qahhor",
+                "genre": "hikoya",
+                "price": 55000,
+                "stock": 8,
+                "image": "https://via.placeholder.com/280x300/764ba2/fff?text=Shaytanat"
+            },
+            {
+                "id": "men",
+                "title": "Men",
+                "author": "O'tkir Hoshimov",
+                "genre": "roman",
+                "price": 38000,
+                "stock": 15,
+                "image": "https://via.placeholder.com/280x300/667eea/fff?text=Men"
+            },
+            {
+                "id": "sarob",
+                "title": "Sarob",
+                "author": "O'tkir Hoshimov",
+                "genre": "roman",
+                "price": 42000,
+                "stock": 10,
+                "image": "https://via.placeholder.com/280x300/764ba2/fff?text=Sarob"
+            },
+            {
+                "id": "tong-yulduzi",
+                "title": "Tong Yulduzi",
+                "author": "Erkin Vohidov",
+                "genre": "she'r",
+                "price": 35000,
+                "stock": 20,
+                "image": "https://via.placeholder.com/280x300/667eea/fff?text=Tong+Yulduzi"
+            },
+            {
+                "id": "mantiq",
+                "title": "Mantiq",
+                "author": "A. Ibn Sino",
+                "genre": "ilm",
+                "price": 60000,
+                "stock": 5,
+                "image": "https://via.placeholder.com/280x300/764ba2/fff?text=Mantiq"
+            }
+        ];
+
+        const genreFilter = document.getElementById('genreFilter');
+        const maxPriceFilter = document.getElementById('maxPrice');
+        const searchInput = document.getElementById('searchInput');
+        const booksGrid = document.getElementById('booksGrid');
+        let allBooks = booksData;
+
+        function renderBooks(books) {
+            booksGrid.innerHTML = '';
+            books.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'book-card';
+                bookCard.dataset.genre = book.genre;
+                bookCard.dataset.price = book.price;
+                bookCard.innerHTML = `
+                    <img src="${book.image}" alt="${book.title}" class="book-image">
+                    <h3>${book.title}</h3>
+                    <p class="author">${book.author}</p>
+                    <div class="book-info">
+                        <span class="price">${book.price.toLocaleString()} so'm</span>
+                        <span class="stock">Mavjud: ${book.stock}</span>
+                    </div>
+                    <a href="book.html?id=${book.id}" class="view-btn">Ko'rish</a>
+                `;
+                booksGrid.appendChild(bookCard);
+            });
+        }
+
+        function filterBooks() {
+            const selectedGenre = genreFilter.value;
+            const maxPrice = maxPriceFilter.value ? parseInt(maxPriceFilter.value) : Infinity;
+            const searchTerm = searchInput.value.toLowerCase();
+
+            const filtered = allBooks.filter(book => {
+                const genreMatch = selectedGenre === 'all' || book.genre === selectedGenre;
+                const priceMatch = book.price <= maxPrice;
+                const searchMatch = book.title.toLowerCase().includes(searchTerm);
+                return genreMatch && priceMatch && searchMatch;
+            });
+
+            renderBooks(filtered);
+        }
+
+        renderBooks(allBooks);
+
+        genreFilter.addEventListener('change', filterBooks);
+        maxPriceFilter.addEventListener('input', filterBooks);
+        searchInput.addEventListener('input', filterBooks);
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kichkina Shaxzoda - Onlayn Kitob Do'koni</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            min-width: 200px;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h2 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .map-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 40px;
+        }
+
+        .map-section h3 {
+            text-align: center;
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .bestsellers {
+            margin: 40px 0;
+        }
+
+        .bestsellers h3 {
+            text-align: center;
+            font-size: 2em;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .book-rank {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .book-card h4 {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .book-card p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .book-price {
+            color: #667eea;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        address {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kichkina Shaxzoda</h1>
+            <p>Onlayn kitob do'koni</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Bosh sahifa</a></li>
+                <li><a href="catalog.html">Katalog</a></li>
+                <li><a href="partners.html">Hamkorlarimiz</a></li>
+                <li><a href="about.html">Biz haqimizda</a></li>
+            </ul>
+        </nav>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h2>12,450</h2>
+                <p>Sotilgan kitoblar</p>
+            </div>
+            <div class="stat-card">
+                <h2>3,280</h2>
+                <p>Mijozlar</p>
+            </div>
+            <div class="stat-card">
+                <h2>1,560</h2>
+                <p>Mavjud kitoblar</p>
+            </div>
+        </div>
+
+        <div class="bestsellers">
+            <h3>Eng ko'p sotilgan kitoblar</h3>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-rank">1</div>
+                    <h4>Binafsha</h4>
+                    <p>Shahlo Qosimova</p>
+                    <div class="book-price">45,000 so'm</div>
+                </div>
+                <div class="book-card">
+                    <div class="book-rank">2</div>
+                    <h4>Shaytanat</h4>
+                    <p>Abdulla Qahhor</p>
+                    <div class="book-price">55,000 so'm</div>
+                </div>
+                <div class="book-card">
+                    <div class="book-rank">3</div>
+                    <h4>Men</h4>
+                    <p>O'tkir Hoshimov</p>
+                    <div class="book-price">38,000 so'm</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h3>Bizning manzil</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d389737.3802464339!2d71.60174084726563!3d41.008360499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b20cc1ad6d3%3A0xdb5103e33b2c60bc!2sNamangan%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <address>
+                📍 Namangan shahri, O'zbekiston
+            </address>
+        </div>
+    </div>
+</body>
+</html>

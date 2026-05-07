@@ -1,0 +1,26 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Kitobni o'chirish{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h1 class="mb-4">Kitobni o'chirish</h1>
+        <div class="alert alert-danger">
+            <p>Siz rostdan ham "{{ book.title }}" kitobini o'chirmoqchimisiz?</p>
+        </div>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">Muallif: {{ book.author }}</p>
+                <p class="card-text">Narxi: {{ book.price }} so'm</p>
+            </div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">O'chirish</button>
+            <a href="{% url 'admin_books' %}" class="btn btn-secondary">Bekor qilish</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

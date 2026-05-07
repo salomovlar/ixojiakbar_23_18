@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamkorlarimiz - Kichkina Shaxzoda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .partners-section {
+            margin: 40px 0;
+        }
+
+        .partners-section h2 {
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .partner-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: #667eea;
+        }
+
+        .partner-card h3 {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .partner-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kichkina Shaxzoda</h1>
+            <p>Hamkorlarimiz</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="catalog.html">Katalog</a></li>
+                <li><a href="partners.html" class="active">Hamkorlarimiz</a></li>
+                <li><a href="about.html">Biz haqimizda</a></li>
+            </ul>
+        </nav>
+
+        <div class="partners-section">
+            <h2>Bizning hamkorlarimiz</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">📚</div>
+                    <h3>Sharq yulduzi</h3>
+                    <p>Nashriyot uyi - bizga eng sifatli kitoblarni yetkazib beradi</p>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo">🚚</div>
+                    <h3>Tez Yetkazish</h3>
+                    <p>Kuryer xizmati - buyurtmalarni tez va xavfsiz yetkazib berish</p>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo">💳</div>
+                    <h3>Payme</h3>
+                    <p>To'lov tizimi - xavfsiz va qulay onlayn to'lovlar</p>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo">📖</div>
+                    <h3>Kitob dunyosi</h3>
+                    <p>Kitob do'koni tarmog'i - qo'shimcha kitoblar bilan ta'minlaydi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
